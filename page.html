@@ -74,6 +74,7 @@
       padding: 10px;
       text-align: center;
       font-size: 12px;
+
     }
 	.shadow-text {
       text-shadow: 0px 0px 5px black;
@@ -94,7 +95,7 @@
 	  backdrop-filter: blur(15px);
     }
 	input[type="text"]::placeholder {
-	  color: rgba(0, 0, 0, 0.7); /* Hellerer Placeholder-Text */
+	  color: rgba(0, 0, 0, 0.7); 
 }
 	.styled-button {
       background-color: rgba(0, 0, 0, 0);
@@ -109,7 +110,7 @@
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
     }
-    /* Stil für die Sidebar-Buttons */
+  
 	.sidebar-button {
 	background-color: rgba(0, 0, 0, 0);
 	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3));
@@ -122,22 +123,21 @@
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
-	width: 87%; /* Feste Breite für alle Buttons */
+	width: 87%; 
 	}
-    /* Stil für die Sidebar */
+
     .sidebar {
       position: fixed;
       top: 0;
-      left: -250px; /* Ausgeblendet */
+      left: -250px; 
       width: 250px;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.3);
       transition: left 0.3s ease-in-out;
-      border-right: 1px solid black; /* Schwarzer Balken am rechten Rand */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Schatten */
+      border-right: 1px solid black; 
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
       backdrop-filter: blur(15px); 
     }
-    /* Stil für den Knopf zum Ein- und Ausfahren der Sidebar */
     #sidebar-toggle {
       position: fixed;
       top: 10px;
@@ -150,7 +150,6 @@
       outline: none;
     }
 
-    /* Stil für die Schaltfläche zum Schließen der Sidebar */
     #sidebar-close {
       position: absolute;
       top: 10px;
@@ -163,23 +162,76 @@
       outline: none;
     }
 
-    /* Stil für die Optionen in der Sidebar */
     .sidebar-option {
       padding: 10px;
     }
 
-    /* Klasse zum Anzeigen der Sidebar */
     .open {
       left: 0;
     }
+        .play-pause-button {
+            position: fixed;
+            top: calc(100% - 95px);
+            right: 10px;
+            z-index: 9999;
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-pause-button img {
+            width: 40px; 
+            height: 40px; 
+        }
+        .volume-slider-container {
+            position: fixed;
+            top: calc(100% - 50px); 
+            right: 10px;
+            z-index: 9999;
+            width: 150px; 
+			box-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+			border-radius: 5px;
+        }
+
+        .volume-slider-track {
+            width: 100%;
+            height: 10px;
+            background-color: white;
+            background-image: none; 
+            border-radius: 5px;
+        }
+
+        .volume-slider-fill {
+            height: 110%;
+            background-color: black;
+            border-radius: 5px;
+            transition: width 0.2s ease-in-out;
+        }
+
+	.volume-slider-handle {
+		width: 20px;
+		height: 20px;
+		background-color: transparent;
+		border-radius: 10px;
+		position: absolute; 
+		top: -5px;
+		cursor: pointer;
+		z-index: 1;
+		transform: translateX(-50%); 
+	}
+
+
   </style>
 </head>
-  <!-- Knopf zum Ein- und Ausfahren der Sidebar -->
   <button id="sidebar-toggle">&#9776;</button>
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <!-- Schaltfläche zum Schließen der Sidebar -->
     <div id="sidebar-close">&#10005;</div>
 
     <!-- Option 1 -->
@@ -187,19 +239,17 @@
       <button class="sidebar-button" onclick="buttonClicked(1)">Loading page</button>
     </div>
 
-    <!-- Option 2 -->
     <div class="sidebar-option">
       <button class="sidebar-button" onclick="buttonClicked(2)">Cool page</button>
     </div>
 
-    <!-- Option 3 -->
     <div class="sidebar-option">
       <button class="sidebar-button" onclick="buttonClicked(3)">Free money</button>
     </div>
   </div>
 
   <script>
-    // JavaScript zum Ein- und Ausfahren der Sidebar
+
     const sidebarToggle = document.getElementById('sidebar-toggle');
     const sidebar = document.querySelector('.sidebar');
     const sidebarClose = document.getElementById('sidebar-close');
@@ -208,21 +258,20 @@
       sidebar.classList.toggle('open');
 
       if (sidebar.classList.contains('open')) {
-        sidebarToggle.style.display = 'none'; // Verstecke den Ein-/Ausfahren-Knopf
+        sidebarToggle.style.display = 'none'; 
       } else {
-        sidebarToggle.style.display = 'block'; // Zeige den Ein-/Ausfahren-Knopf
+        sidebarToggle.style.display = 'block'; 
       }
     });
 
     sidebarClose.addEventListener('click', () => {
       sidebar.classList.remove('open');
-      sidebarToggle.style.display = 'block'; // Zeige den Ein-/Ausfahren-Knopf
+      sidebarToggle.style.display = 'block'; 
     });
 
-    // Funktion zum Behandeln des Klicks auf die Knöpfe
+
     function buttonClicked(buttonNumber) {
-      // Füge hier den entsprechenden Code ein, der ausgeführt werden soll, wenn einer der Knöpfe geklickt wird
-      // Verwende die Variable 'buttonNumber', um zu unterscheiden, welcher Knopf geklickt wurde
+
       switch (buttonNumber) {
         case 1:
             window.location.href = "index.html";
@@ -240,10 +289,10 @@
   </script>
 
   <script>
-    // JavaScript zum Schließen der Sidebar beim Laden der Seite
+    
     window.addEventListener('DOMContentLoaded', () => {
       sidebar.classList.remove('open');
-      sidebarToggle.style.display = 'block'; // Zeige den Ein-/Ausfahren-Knopf
+      sidebarToggle.style.display = 'block'; 
     });
   </script>
   <div id="bg-wrap">
@@ -360,15 +409,78 @@
     <button class="styled-button" onclick="clearForm()">Get free V-Bucks</button>
   </form>
 
-  <script>
-    function clearForm() {
-      document.getElementById("myForm").reset();
-    }
-  </script>
-  </div>
-	
+    <button class="play-pause-button" onclick="togglePlayPause()">
+        <img id="playPauseIcon" src="play_button.png" alt="Play">
+    </button>
 
-  <script src="script.js"></script>
+    <div class="volume-slider-container">
+        <div class="volume-slider-track">
+            <div class="volume-slider-fill" style="width: 100%;"></div>
+            <div class="volume-slider-handle" style="left: 100%;"></div>
+        </div>
+    </div>
+
+
+    <div class="shadow-footer" id="footer">
+        &copy; 2023 created w/ paint | EinfachZuEinfach#7923
+    </div>
+
+    <script>
+        var audio = new Audio('audio.mp3'); 
+        var playPauseButton = document.querySelector('.play-pause-button');
+        var playPauseIcon = document.getElementById('playPauseIcon');
+        var volumeSliderContainer = document.querySelector('.volume-slider-container');
+        var volumeSliderFill = document.querySelector('.volume-slider-fill');
+        var volumeSliderHandle = document.querySelector('.volume-slider-handle');
+
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play();
+                playPauseIcon.src = "pause_button.png"; 
+            } else {
+                audio.pause();
+                playPauseIcon.src = "play_button.png"; 
+            }
+        }
+
+        function setVolume() {
+            var percentage = (volumeSliderHandle.offsetLeft / volumeSliderContainer.offsetWidth) * 100;
+            audio.volume = percentage / 100;
+        }
+
+        volumeSliderHandle.addEventListener('mousedown', function(event) {
+            event.preventDefault();
+            var handleWidth = volumeSliderHandle.offsetWidth;
+            var containerWidth = volumeSliderContainer.offsetWidth - handleWidth;
+
+            document.addEventListener('mousemove', handleDrag);
+            document.addEventListener('mouseup', handleRelease);
+
+            function handleDrag(event) {
+                var newPosition = event.clientX - volumeSliderContainer.getBoundingClientRect().left - (handleWidth / 2);
+                newPosition = Math.max(0, Math.min(newPosition, containerWidth));
+
+                volumeSliderHandle.style.left = newPosition + 'px';
+                volumeSliderFill.style.width = (newPosition + handleWidth / 2) + 'px';
+
+                setVolume();
+            }
+
+            function handleRelease() {
+                document.removeEventListener('mousemove', handleDrag);
+                document.removeEventListener('mouseup', handleRelease);
+            }
+        });
+
+        audio.onended = function() {
+            playPauseIcon.src = "play_button.png"; 
+        };
+
+        window.addEventListener('load', function() {
+            setVolume(); 
+        });
+    </script>
+	
   <div class="shadow-footer" id="footer">
     &copy; 2023 created w/ paint | EinfachZuEinfach#7923
   </div>
