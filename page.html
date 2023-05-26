@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title id="pageTitle"></title>
+  <script>
+    function toggleTitle() {
+      var pageTitle = document.getElementById("pageTitle");
+      var currentTitle = pageTitle.innerHTML;
+      var newTitle = currentTitle === "H" ? "S" : "H";
+      pageTitle.innerHTML = newTitle;
+    }
+
+    setInterval(toggleTitle, 1000); e
+  </script>
+  <style>
+    body {
+      background-color: black;
+      color: black;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #bg-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    #bg-wrap svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    ul li {
+      margin: 0 10px;
+    }
+
+    .list-title {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .list-items {
+      display: flex;
+      justify-content: center;
+    }
+
+    .list-items li {
+      margin: 0 10px;
+    }
+
+    #footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: black;
+      color: hotpink;
+      padding: 10px;
+      text-align: center;
+      font-size: 12px;
+    }
+	.shadow-text {
+      text-shadow: 0px 0px 5px black;
+    }
+	.shadow-footer {
+      text-shadow: 0px 0px 5px hotpink;
+    }
+	input[type="text"]{
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s ease-in-out;
+	  box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
+
+    }
+	.styled-button {
+      background-color: rgba(0, 0, 0, 0);
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3));
+      color: rgba(0, 0, 0, 1);
+	  text-shadow: 0px 0px 3px gray;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="bg-wrap">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="Gradient1" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(255, 0, 255, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(255, 0, 255, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient2" cx="50%" cy="50%" fx="2.68147%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(255, 255, 0, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(255, 255, 0, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient3" cx="50%" cy="50%" fx="0.836536%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(0, 255, 255, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(0, 255, 255, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient4" cx="50%" cy="50%" fx="4.56417%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="23s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(0, 255, 0, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(0, 255, 0, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient5" cx="50%" cy="50%" fx="2.65405%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="24.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(0,0,255, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(0,0,255, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient6" cx="50%" cy="50%" fx="0.981338%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="25.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(255,0,0, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(255,0,0, 0)"></stop>
+        </radialGradient>
+      </defs>
+      <rect x="13.744%" y="1.18473%" width="100%" height="100%" fill="url(#Gradient1)" transform="rotate(334.41 50 50)">
+        <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="7s" repeatCount="indefinite"></animateTransform>
+      </rect>
+      <rect x="-2.17916%" y="35.4267%" width="100%" height="100%" fill="url(#Gradient2)" transform="rotate(255.072 50 50)">
+        <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="12s" repeatCount="indefinite"></animateTransform>
+      </rect>
+      <rect x="9.00483%" y="14.5733%" width="100%" height="100%" fill="url(#Gradient3)" transform="rotate(139.903 50 50)">
+        <animate attributeName="x" dur="25s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="12s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="9s" repeatCount="indefinite"></animateTransform>
+      </rect>
+      <rect x="3.558%" y="0.308162%" width="100%" height="100%" fill="url(#Gradient4)" transform="rotate(25.9114 50 50)">
+        <animate attributeName="x" dur="22s" values="-25%;0%;-25%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="23s" values="25%;0%;25%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="8s" repeatCount="indefinite"></animateTransform>
+      </rect>
+      <rect x="17.7797%" y="47.6063%" width="100%" height="100%" fill="url(#Gradient5)" transform="rotate(170.01 50 50)">
+        <animate attributeName="x" dur="24s" values="25%;0%;25%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="25s" values="-25%;0%;-25%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="10s" repeatCount="indefinite"></animateTransform>
+      </rect>
+      <rect x="3.69945%" y="28.6718%" width="100%" height="100%" fill="url(#Gradient6)" transform="rotate(2.24042 50 50)">
+        <animate attributeName="x" dur="25s" values="-25%;0%;-25%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="26s" values="-25%;0%;-25%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="11s" repeatCount="indefinite"></animateTransform>
+      </rect>
+    </svg>
+  </div>
+
+  <h1 class="shadow-text">EinfachZuEinfach:</h1>
+
+  <ul style="margin-left: -30px;">
+    <li>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <img src="instagram-logo.png" alt="Instagram" width="33" height="33">
+      </a>
+    </li>
+
+    <li>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <img src="youtube-logo.png" alt="YouTube" width="40" height="30">
+      </a>
+    </li>
+
+    <li>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <img src="discord-logo.png" alt="Discord" width="40" height="30">
+      </a>
+    </li>
+  </ul>
+
+  <div class="list-title">
+    <h2 class="shadow-text">Why you can trust me:</h2>
+  </div>
+  <div class="list-items" style="line-height: 2;">
+<ul style="display:inline">
+  <li class="shadow-text">I have paint installed on my computer</li>
+  <li class="shadow-text">Your mom trust me too</li>
+  <li class="shadow-text">Third reason coming soon</li>
+</ul>
+  </div>
+
+  <div class="list-title" >
+  <h1 class="shadow-text">Get free V-Bucks:</h1>
+
+  <form id="myForm">
+    <input type="text" size="25" id="input1" name="input1" placeholder="Your mom's credit card number">
+	<br>
+
+    <input type="text" size="25" id="input2" name="input2" placeholder="Expiry Date">
+	<br>
+    <input type="text" size="25" id="input2" name="input2" placeholder="Security Code">
+	<br>
+    <button class="styled-button" onclick="clearForm()">Get free V-Bucks</button>
+  </form>
+
+  <script>
+    function clearForm() {
+      document.getElementById("myForm").reset();
+    }
+  </script>
+  </div>
+
+  <div class="shadow-footer" id="footer">
+    &copy; 2023 created w/ paint | EinfachZuEinfach#7923
+  </div>
+</body>
+</html>
