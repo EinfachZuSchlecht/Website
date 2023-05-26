@@ -82,7 +82,7 @@
       text-shadow: 0px 0px 5px hotpink;
     }
 	input[type="text"]{
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.3);
       border: 1px solid #ccc;
       border-radius: 5px;
       padding: 10px;
@@ -91,7 +91,7 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: border-color 0.3s ease-in-out;
 	  box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
-
+	  backdrop-filter: blur(15px);
     }
 	.styled-button {
       background-color: rgba(0, 0, 0, 0);
@@ -106,11 +106,143 @@
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
     }
+    /* Stil für die Sidebar-Buttons */
+	.sidebar-button {
+	background-color: rgba(0, 0, 0, 0);
+	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3));
+	color: rgba(0, 0, 0, 1);
+	text-shadow: 0px 0px 3px gray;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 3);
+	width: 87%; /* Feste Breite für alle Buttons */
+	}
+    /* Stil für die Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Ausgeblendet */
+      width: 250px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      transition: left 0.3s ease-in-out;
+      border-right: 1px solid black; /* Schwarzer Balken am rechten Rand */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Schatten */
+      backdrop-filter: blur(15px); 
+    }
+    /* Stil für den Knopf zum Ein- und Ausfahren der Sidebar */
+    #sidebar-toggle {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      background-color: transparent;
+      color: black;
+      border: none;
+      outline: none;
+    }
 
+    /* Stil für die Schaltfläche zum Schließen der Sidebar */
+    #sidebar-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      background-color: transparent;
+      color: black;
+      border: none;
+      outline: none;
+    }
 
+    /* Stil für die Optionen in der Sidebar */
+    .sidebar-option {
+      padding: 10px;
+    }
+
+    /* Klasse zum Anzeigen der Sidebar */
+    .open {
+      left: 0;
+    }
   </style>
 </head>
-<body>
+  <!-- Knopf zum Ein- und Ausfahren der Sidebar -->
+  <button id="sidebar-toggle">&#9776;</button>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Schaltfläche zum Schließen der Sidebar -->
+    <div id="sidebar-close">&#10005;</div>
+
+    <!-- Option 1 -->
+    <div class="sidebar-option">
+      <button class="sidebar-button" onclick="buttonClicked(1)">Loading page</button>
+    </div>
+
+    <!-- Option 2 -->
+    <div class="sidebar-option">
+      <button class="sidebar-button" onclick="buttonClicked(2)">Cool page</button>
+    </div>
+
+    <!-- Option 3 -->
+    <div class="sidebar-option">
+      <button class="sidebar-button" onclick="buttonClicked(3)">Free money</button>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript zum Ein- und Ausfahren der Sidebar
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarClose = document.getElementById('sidebar-close');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+
+      if (sidebar.classList.contains('open')) {
+        sidebarToggle.style.display = 'none'; // Verstecke den Ein-/Ausfahren-Knopf
+      } else {
+        sidebarToggle.style.display = 'block'; // Zeige den Ein-/Ausfahren-Knopf
+      }
+    });
+
+    sidebarClose.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarToggle.style.display = 'block'; // Zeige den Ein-/Ausfahren-Knopf
+    });
+
+    // Funktion zum Behandeln des Klicks auf die Knöpfe
+    function buttonClicked(buttonNumber) {
+      // Füge hier den entsprechenden Code ein, der ausgeführt werden soll, wenn einer der Knöpfe geklickt wird
+      // Verwende die Variable 'buttonNumber', um zu unterscheiden, welcher Knopf geklickt wurde
+      switch (buttonNumber) {
+        case 1:
+            window.location.href = "index.html";
+          break;
+        case 2:
+          window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+          break;
+        case 3:
+          window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+          break;
+        default:
+          break;
+      }
+    }
+  </script>
+
+  <script>
+    // JavaScript zum Schließen der Sidebar beim Laden der Seite
+    window.addEventListener('DOMContentLoaded', () => {
+      sidebar.classList.remove('open');
+      sidebarToggle.style.display = 'block'; // Zeige den Ein-/Ausfahren-Knopf
+    });
+  </script>
   <div id="bg-wrap">
     <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
       <defs>
@@ -231,7 +363,9 @@
     }
   </script>
   </div>
+	
 
+  <script src="script.js"></script>
   <div class="shadow-footer" id="footer">
     &copy; 2023 created w/ paint | EinfachZuEinfach#7923
   </div>
