@@ -5,13 +5,14 @@
   <title>Loading</title>
   <style>
     body {
-	  background-color: black;
+      background-color: black;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
-	  color: hotpink;
+      color: hotpink;
     }
     #loading-container {
       width: 200px;
@@ -19,6 +20,7 @@
       background-color: black;
       border: 1px solid pink;
       overflow: hidden;
+      margin-bottom: 10px;
     }
     #loading-bar {
       width: 0%;
@@ -26,7 +28,10 @@
       background-color: hotpink;
       transition: width 2s;
     }
-	#footer {
+    #loading-text {
+      text-align: center;
+    }
+    #footer {
       position: fixed;
       bottom: 0;
       width: 100%;
@@ -36,22 +41,59 @@
       text-align: center;
       font-size: 12px;
     }
-	.shadow-footer {
+    .shadow-footer {
       text-shadow: 0px 0px 5px hotpink;
     }
   </style>
   <script>
     window.onload = function() {
       var loadingBar = document.getElementById("loading-bar");
-      loadingBar.style.width = "100%";
-      setTimeout(function() {
-        window.location.href = "page.html";
-      }, 2000); 
+      var loadingText = document.getElementById("loading-text");
+      var texts = [
+        "Loading",
+        "You can shoot at trees, rocks, and structures to destroy them, but this harvests no resources.",
+        "Explore quickly by building your own stairs and bridges.",
+        "Explosive weapons do significant damage to structures.",
+        "Stand still and aim down sights to increase weapon accuracy.",
+        "Hit trees, rocks and other objects with your pickaxe to harvest materials for building.",
+        "While building, you can switch between Wood, Stone, and Metal.",
+        "Damaging objects near sleeping husks may wake them. Try to be quiet, they need their rest.",
+        "You can rotate building pieces before placing them!",
+        "You can repair and rebuild at any time. Stock up on resources before defending your base.",
+        "Open your inventory to craft ammo, traps, and weapons.",
+        "You can edit any building piece, before or after it has been built!",
+        "Destroying mechanical objects will give you useful crafting materials.",
+        "Destroy rocks and trees to get everything you need for simple traps.",
+        "XP Boosts have a chance of appearing in Upgrade Llamas!",
+        "Traps are great for base defense, especially when playing alone.",
+        "Fortify that fort! Upgraded structures are stronger and last longer."
+      ];
+      var currentIndex = 0;
+
+      function updateTextAndProgress() {
+        loadingText.innerHTML = texts[currentIndex];
+        currentIndex++;
+
+        var progress = (currentIndex / texts.length) * 100;
+        loadingBar.style.width = progress + "%";
+
+        if (currentIndex >= texts.length) {
+          clearInterval(interval);
+          loadingText.innerHTML = "downloading RemoteAccessTrojanWindowsx64.exe";
+          loadingBar.style.width = "100%";
+          setTimeout(function() {
+            window.location.href = "page.html";
+          }, 2000);
+        }
+      }
+
+      var interval = setInterval(updateTextAndProgress, 100);
     };
   </script>
 </head>
 <body>
 
+  <div id="loading-text" class="shadow-footer">Text 1</div>
   <div id="loading-container">
     <div id="loading-bar"></div>
   </div>
