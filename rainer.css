@@ -1,0 +1,151 @@
+body {
+    display: flex;
+    flex-direction: column; /* Elemente vertikal anordnen */
+    justify-content: flex-start; /* Am oberen Rand ausrichten */
+    align-items: center; /* Horizontal zentrieren */
+    margin: 0;
+    padding: 20px 0; /* Oben und unten 20px Abstand */
+    min-height: 100vh; /* Mindesthöhe des Viewports einnehmen */
+    background-color:#d1ff99;
+    font-family: Arial, Helvetica, sans-serif;
+background-image:
+radial-gradient(at 98% 99%, hsla(233,72%,70%,1) 0px, transparent 50%),
+radial-gradient(at 96% 2%, hsla(353,92%,78%,1) 0px, transparent 50%),
+radial-gradient(at 52% 17%, hsla(292,67%,70%,1) 0px, transparent 50%),
+radial-gradient(at 9% 76%, hsla(293,73%,60%,1) 0px, transparent 50%),
+radial-gradient(at 20% 31%, hsla(152,78%,74%,1) 0px, transparent 50%),
+radial-gradient(at 78% 33%, hsla(190,69%,60%,1) 0px, transparent 50%),
+radial-gradient(at 87% 28%, hsla(264,70%,69%,1) 0px, transparent 50%);
+
+}
+.shadow-text {
+  text-shadow: 0px 0px 5px black;
+}
+
+.fade-out {
+  animation: fadeOutAnimation 2s ease-out;
+  opacity: 0;
+}
+
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 0;
+    filter: blur(10px); /* Starke Unschärfe zu Beginn */
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(5px); /* Mittlere Unschärfe in der Mitte */
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px); /* Keine Unschärfe am Ende */
+  }
+}
+
+
+
+  
+
+button{
+    height: 30px;
+    width: 200px;
+    background-color:  rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    border: 1px solid black;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 1);
+
+}
+
+
+#displayContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 300px;  /* Festgelegte Breite der Box */
+    height: 300px; /* Festgelegte Höhe der Box */
+    border: 1px solid #000; /* Beispielrahmen um die Box */
+    background-color:  rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Beispiel-Innenabstand der Box */
+    border-radius: 25px;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 1);
+    position: relative; /* Positionierung für das Overlay */
+}
+
+
+  
+
+
+#displayElement {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Abstand unterhalb des Textes */
+
+}
+
+#itemImage {
+    max-width: 100%; /* Maximale Breite des Bildes */
+    max-height: 100%; /* Maximale Höhe des Bildes */
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid black;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 1);
+    
+}
+
+#footerContainer {
+    width: 100vw; /* Die volle Breite des Viewports verwenden */
+    margin: 0;
+    max-height: 200px; /* Maximale Höhe des Inventars */
+    overflow-y: auto; /* Scrollbalken anzeigen, wenn der Inhalt die Höhe überschreitet */
+}
+
+#inventory {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Elemente linksbündig ausrichten */
+    align-items: flex-start; /* Oben ausrichten */
+    overflow-y: auto; /* Scrollbalken immer anzeigen */
+    overflow-x: hidden; /* Horizontales Scrollen ausblenden */
+}
+
+.itemBox {
+    flex: 0 0 120px; /* Feste Breite für die Item-Boxen */
+    height: 150px;
+    border: 1px solid #000;
+    margin: 10px;
+    text-align: center;
+    padding: 5px;
+    background-color:  rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 1);
+}
+
+.itemImage {
+    max-width: 100px;
+    max-height: 100px;
+    margin-bottom: 5px;
+}
+
+.link-button {
+  color: white;
+  text-shadow: 0px 1px 1px white;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 40px;
+  width: 90px;
+  border-radius: 20px;
+  border: 1px solid white;
+  box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5);
+}
