@@ -35,13 +35,13 @@ var data = [
           buttonCooldown = false;
           randomButton.disabled = false;
           displayContainer.classList.remove("fade-out");
-        }, 2000); // 2 Sekunden Verzögerung
+        }, 2000); 
   
         randomButton.classList.add("cooldown");
   
         setTimeout(function() {
           randomButton.classList.remove("cooldown");
-        }, 3000); // 3 Sekunden Cooldown
+        }, 3000); 
       }
     });
   
